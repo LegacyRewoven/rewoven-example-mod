@@ -12,8 +12,8 @@ group = project.maven_group
 
 repositories {
 	maven {
-		name = "legacy-fabric"
-		url = "https://maven.legacyfabric.net"
+		name = "Legacy Rewoven"
+		url = "https://github.com/LegacyRewoven/maven/raw/main"
 	}
 }
 
@@ -24,19 +24,15 @@ minecraft {
 		return "https://maven.legacyfabric.net/net/fabricmc/intermediary/" + it + "/intermediary-" + it + "-v2.jar";
 	}
 }
-loom {
-// Uncomment when using loom 0.10
-//	setIntermediaryUrl('https://maven.legacyfabric.net/net/fabricmc/intermediary/%1$s/intermediary-%1$s-v2.jar');
-}
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	mappings "io.github.legacyrewoven:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric API provides hooks for events, item registration, and more. As most mods will need this, it's included by default. 
 	// If you know for a fact you don't, it's not required and can be safely removed.
-	modImplementation ("net.legacyfabric.legacy-fabric-api:legacy-fabric-api:${fabric_version}") {
+	modImplementation ("io.github.legacyrewoven.rewoven-api:rewoven-api:${api_version}") {
 		exclude module: "fabric-loader-1.8.9"
 	}
 
